@@ -2,9 +2,9 @@
 
 ## ✅ Your Gemini API Key is Already Configured!
 
-Your `.env` file already contains:
+Your `.env` file should contain:
 ```
-GEMINI_API_KEY=AIzaSyDlQUlV3ap1IITbLo9C1tAhXdCiwo11_sM
+GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
 ## 📋 Required Package
