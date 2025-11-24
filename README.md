@@ -2,6 +2,14 @@
 
 An intelligent, enterprise-grade mock interview platform that provides realistic interview practice with real-time AI feedback, voice interaction, video analysis, and comprehensive performance reports.
 
+## 🌐 Live Demo
+
+- **Frontend**: https://interview-practice-partner-1.onrender.com
+- **Backend API**: https://interview-practice-partner.onrender.com
+- **API Documentation**: https://interview-practice-partner.onrender.com/docs
+
+> **Note**: Free tier services may take 30-60 seconds to wake up on first request.
+
 ---
 
 ## 📋 Table of Contents
