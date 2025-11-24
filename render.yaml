@@ -20,15 +20,11 @@ services:
   # Frontend Service
   - type: web
     name: interview-frontend
-    env: static
+    env: node
     region: oregon
     plan: free
     buildCommand: "cd frontend && npm install && npm run build"
-    staticPublishPath: frontend/dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+    startCommand: "cd frontend && npm start"
     envVars:
       - key: VITE_API_URL
         value: https://interview-backend.onrender.com
