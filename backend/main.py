@@ -36,7 +36,8 @@ allowed_origins = [
     "http://localhost:3000",
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://interview-practice-partner.onrender.com",  # Production frontend
+    "https://interview-practice-partner.onrender.com",  # Production backend
+    "https://interview-practice-partner-1.onrender.com",  # Production frontend
     "https://*.onrender.com",  # Any Render subdomain
 ]
 
