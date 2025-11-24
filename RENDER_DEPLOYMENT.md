@@ -25,9 +25,10 @@
    - **Branch**: `main`
    - **Root Directory**: Leave empty
    - **Environment**: `Python 3`
+   - **Python Version**: `3.11.0` (set in Environment Variables)
    - **Build Command**: 
      ```
-     cd backend && pip install -r requirements.txt
+     cd backend && pip install --no-cache-dir -r requirements.txt
      ```
    - **Start Command**: 
      ```
