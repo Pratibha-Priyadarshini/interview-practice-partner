@@ -20,9 +20,11 @@ function InterviewSetup({ onStart, token }) {
     fetchRoles()
   }, [])
 
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
   const fetchRoles = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/interview/roles', {
+      const response = await axios.get(`${API_URL}/api/interview/roles`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setRoles(response.data.roles)
@@ -57,7 +59,7 @@ function InterviewSetup({ onStart, token }) {
       const formData = new FormData()
       formData.append('file', file)
       
-      const response = await axios.post('http://localhost:8000/api/interview/resume/parse', formData, {
+      const response = await axios.post(`${API_URL}/api/interview/resume/parse`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${token}`
@@ -109,7 +111,7 @@ function InterviewSetup({ onStart, token }) {
     setError('')
 
     try {
-      const response = await axios.post('http://localhost:8000/api/interview/start', {
+      const response = await axios.post(`${API_URL}/api/interview/start`, {
         role: selectedRole,
         interview_round: interviewRound,
         duration_minutes: duration,

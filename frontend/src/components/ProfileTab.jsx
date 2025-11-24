@@ -17,9 +17,11 @@ const ProfileTab = () => {
     fetchStats();
   }, []);
 
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
   const fetchStats = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/reports/stats/summary', {
+      const response = await axios.get(`${API_URL}/api/reports/stats/summary`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setStats(response.data);

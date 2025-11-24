@@ -469,9 +469,10 @@ function InterviewSession({ sessionData, onEnd, token }) {
     // Use ref to get current mode reliably
     const currentMode = modeRef.current
     console.log('Sending message in mode:', currentMode, 'State mode:', mode)
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
     try {
-      const response = await axios.post('http://localhost:8000/api/interview/message', {
+      const response = await axios.post(`${API_URL}/api/interview/message`, {
         session_id: sessionData.session_id,
         message: text.trim(),
         is_voice: isVoice
@@ -590,7 +591,7 @@ function InterviewSession({ sessionData, onEnd, token }) {
 
       // Send frame to backend for analysis (fire and forget - don't block)
       console.log('📸 Capturing frame for analysis...')
-      axios.post('http://localhost:8000/api/interview/video-frame', {
+      axios.post(`${API_URL}/api/interview/video-frame`, {
         session_id: sessionData.session_id,
         image_base64: imageBase64,
         current_question: currentQuestion
@@ -757,7 +758,7 @@ function InterviewSession({ sessionData, onEnd, token }) {
     
     try {
       // Send code to backend for review - this will automatically add it to conversation history
-      const codeResponse = await axios.post('http://localhost:8000/api/interview/code-submission', {
+      const codeResponse = await axios.post(`${API_URL}/api/interview/code-submission`, {
         session_id: sessionData.session_id,
         code: code.trim(),
         language: language
@@ -808,7 +809,7 @@ function InterviewSession({ sessionData, onEnd, token }) {
     stopVideo() // Stop video when interview ends
     setLoading(true)
     try {
-      const response = await axios.post('http://localhost:8000/api/interview/end', {
+      const response = await axios.post(`${API_URL}/api/interview/end`, {
         session_id: sessionData.session_id
       }, {
         headers: { Authorization: `Bearer ${token}` }

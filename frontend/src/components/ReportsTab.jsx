@@ -13,9 +13,11 @@ const ReportsTab = () => {
     fetchInterviews();
   }, []);
 
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
   const fetchInterviews = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/reports/history', {
+      const response = await axios.get(`${API_URL}/api/reports/history`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setInterviews(response.data);
@@ -28,7 +30,7 @@ const ReportsTab = () => {
 
   const fetchInterviewDetail = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:8000/api/reports/${id}`, {
+      const response = await axios.get(`${API_URL}/api/reports/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSelectedInterview(response.data);
