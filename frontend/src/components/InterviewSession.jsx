@@ -4,6 +4,8 @@ import CodeEditor from './CodeEditor'
 import './InterviewSession.css'
 
 function InterviewSession({ sessionData, onEnd, token }) {
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+  
   const [messages, setMessages] = useState([])
   const [inputValue, setInputValue] = useState('')
   const [loading, setLoading] = useState(false)
@@ -469,7 +471,6 @@ function InterviewSession({ sessionData, onEnd, token }) {
     // Use ref to get current mode reliably
     const currentMode = modeRef.current
     console.log('Sending message in mode:', currentMode, 'State mode:', mode)
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
     try {
       const response = await axios.post(`${API_URL}/api/interview/message`, {
