@@ -4,7 +4,7 @@ An intelligent, enterprise-grade mock interview platform that provides realistic
 
 ## 🌐 Live Demo
 
-- **Frontend**: https://interview-practice-partner-1.onrender.com
+- **Frontend**: https://interview-frontend-vxgz.onrender.com
 - **Backend API**: https://interview-practice-partner.onrender.com
 - **API Documentation**: https://interview-practice-partner.onrender.com/docs
 
