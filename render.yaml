@@ -23,8 +23,12 @@ services:
     env: static
     region: oregon
     plan: free
-    buildCommand: "cd frontend && npm install && npm run build && cp public/_redirects dist/_redirects"
+    buildCommand: "cd frontend && npm install && npm run build"
     staticPublishPath: frontend/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
     envVars:
       - key: VITE_API_URL
         value: https://interview-backend.onrender.com
