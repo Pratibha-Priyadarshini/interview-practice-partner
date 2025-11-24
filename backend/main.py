@@ -31,9 +31,18 @@ app = FastAPI(
 )
 
 # CORS middleware for frontend communication - MUST be before routes
+# Allow both local development and production URLs
+allowed_origins = [
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "https://interview-practice-partner.onrender.com",  # Production frontend
+    "https://*.onrender.com",  # Any Render subdomain
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=["*"],  # Allow all origins for now (can restrict later)
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=["*"],
